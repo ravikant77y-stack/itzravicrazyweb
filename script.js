@@ -811,11 +811,11 @@ message +=
 `%0A*Total Amount:* ₹${total}`;
 
 let whatsappNumber =
-"919930328353";
+"917304895165";
 
 let url =
-`https://wa.me/${whatsappNumber}?text=${message}`;
+`whatsapp://send?phone=${whatsappNumber}&text=${message}`;
 
-window.open(url,"_blank");
+window.location.href = url;
 
 }
