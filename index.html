@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>CRAXX</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo-box">
+
+<h1 class="logo">
+CRAXX
+</h1>
+
+<p class="owner">
+Made by Ravi Yadav
+</p>
+
+</div>
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search products..."
+onkeyup="searchProducts()"
+>
+
+</header>
+
+<div class="filters">
+
+<button onclick="filterCategory('all')">
+All
+</button>
+
+<button onclick="filterCategory('savouries')">
+Savouries Foods
+</button>
+
+<button onclick="filterCategory('chips')">
+Chips Gourmet
+</button>
+
+<button onclick="filterCategory('namkeen')">
+Namkeen
+</button>
+
+</div>
+
+<!-- SAVOURIES -->
+
+<div class="category-section savouries">
+
+<div class="category">
+
+<h2>Savouries Foods</h2>
+
+<p>Crunchy snack collection</p>
+
+</div>
+
+<div class="products">
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/PG05yWJg/choco-rings.jpg">
+
+<div class="product-content">
+
+<h3>Choco Rings</h3>
+
+<p class="info">
+18gm • Chocolate flavour crunchy rings
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-choco"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Choco Rings',
+75,
+document.getElementById('qty-choco').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/mCYPyQtc/tangy-tomato-rings.jpg">
+
+<div class="product-content">
+
+<h3>Tangy Tomato Rings</h3>
+
+<p class="info">
+24gm • Tangy tomato crunchy rings
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-tangy"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Tangy Tomato Rings',
+75,
+document.getElementById('qty-tangy').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/WN6MLXy1/masala-rings.jpg">
+
+<div class="product-content">
+
+<h3>Masala Rings</h3>
+
+<p class="info">
+24gm • Masala crunchy rings
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-masala-rings"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Masala Rings',
+75,
+document.getElementById('qty-masala-rings').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/XfshrwFP/masala-curls.jpg">
+
+<div class="product-content">
+
+<h3>Masala Curls</h3>
+
+<p class="info">
+33gm • Crispy masala curls
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-masala-curls"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Masala Curls',
+75,
+document.getElementById('qty-masala-curls').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/SZXxXYG/cheese-curls.jpg">
+
+<div class="product-content">
+
+<h3>Cheese Curls</h3>
+
+<p class="info">
+33gm • Cheesy crunchy curls
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-cheese-curls"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Cheese Curls',
+75,
+document.getElementById('qty-cheese-curls').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/PG9xgdX2/fritts-cream-onion.jpg">
+
+<div class="product-content">
+
+<h3>Fritts Cream Onion</h3>
+
+<p class="info">
+33gm • Cream & onion flavour
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-fritts-onion"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Fritts Cream Onion',
+75,
+document.getElementById('qty-fritts-onion').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/VY8X64ZF/fritts-peri-peri.jpg">
+
+<div class="product-content">
+
+<h3>Fritts Peri Peri</h3>
+
+<p class="info">
+33gm • Peri peri flavour
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-fritts-peri"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Fritts Peri Peri',
+75,
+document.getElementById('qty-fritts-peri').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/dsSQ0x4L/masala-natkhat.jpg">
+
+<div class="product-content">
+
+<h3>Masala Natkhat</h3>
+
+<p class="info">
+33gm • Crunchy masala snack
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-natkhat"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Masala Natkhat',
+75,
+document.getElementById('qty-natkhat').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/KcjbWzyj/biggies.jpg">
+
+<div class="product-content">
+
+<h3>Biggies</h3>
+
+<p class="info">
+24gm • Crunchy snack
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-biggies"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Biggies',
+75,
+document.getElementById('qty-biggies').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/hxqH0PdN/pipes.jpg">
+
+<div class="product-content">
+
+<h3>Pipes</h3>
+
+<p class="info">
+Crunchy pipes snack
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-pipes"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹60</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Pipes',
+60,
+document.getElementById('qty-pipes').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/C3Cf6Lfx/cheese-ball.jpg">
+
+<div class="product-content">
+
+<h3>Cheese Ball</h3>
+
+<p class="info">
+33gm • Cheesy crunchy balls
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-cheese-ball"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Cheese Ball',
+75,
+document.getElementById('qty-cheese-ball').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/QFMRNrMk/noodles.jpg">
+
+<div class="product-content">
+
+<h3>Noodles</h3>
+
+<p class="info">
+34gm • Crunchy noodles snack
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-noodles"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹60</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Noodles',
+60,
+document.getElementById('qty-noodles').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<!-- CHIPS GOURMET -->
+
+<div class="category-section chips">
+
+<div class="category">
+
+<h2>Chips Gourmet</h2>
+
+<p>Premium gourmet chips</p>
+
+</div>
+
+<div class="products">
+
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/wFnSsQ6X/salted-chips.jpg">
+
+<div class="product-content">
+
+<h3>Salted Chips</h3>
+
+<p class="info">
+26gm • Gourmet salted chips
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-salted"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Salted Chips',
+75,
+document.getElementById('qty-salted').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/XnRrqC3/cream-onion-chips.jpg">
+
+<div class="product-content">
+
+<h3>Cream Onion Chips</h3>
+
+<p class="info">
+26gm • Cream & onion chips
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-cream-onion"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Cream Onion Chips',
+75,
+document.getElementById('qty-cream-onion').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/93cMXd7J/tomato-chips.jpg">
+
+<div class="product-content">
+
+<h3>Tomato Chips</h3>
+
+<p class="info">
+26gm • Tangy tomato chips
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-tomato-chips"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Tomato Chips',
+75,
+document.getElementById('qty-tomato-chips').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/0y5jkspm/masala-chips.jpg">
+
+<div class="product-content">
+
+<h3>Masala Chips</h3>
+
+<p class="info">
+26gm • Spicy masala chips
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-masala-chips"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Masala Chips',
+75,
+document.getElementById('qty-masala-chips').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<!-- NAMKEEN -->
+
+<div class="category-section namkeen">
+
+<div class="category">
+
+<h2>Namkeen</h2>
+
+<p>Traditional Indian namkeen snacks</p>
+
+</div>
+
+<div class="products">
+
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/hxWtsMT7/double-mazza.jpg">
+
+<div class="product-content">
+
+<h3>Double Mazza</h3>
+
+<p class="info">
+31gm • Namkeen mixture
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-double-mazza"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Double Mazza',
+75,
+document.getElementById('qty-double-mazza').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/Cs4YRs43/hara-mutter.jpg">
+
+<div class="product-content">
+
+<h3>Hara Mutter</h3>
+
+<p class="info">
+31gm • Crunchy green peas namkeen
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-hara-mutter"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Hara Mutter',
+75,
+document.getElementById('qty-hara-mutter').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/r2Z63jHj/aloo-bhujia.jpg">
+
+<div class="product-content">
+
+<h3>Aloo Bhujia</h3>
+
+<p class="info">
+41gm • Crispy aloo bhujia
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-aloo-bhujia"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Aloo Bhujia',
+75,
+document.getElementById('qty-aloo-bhujia').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/5xv5gXXK/moong-dal.jpg">
+
+<div class="product-content">
+
+<h3>Moong Dal</h3>
+
+<p class="info">
+38gm • Fried moong dal namkeen
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-moong-dal"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Moong Dal',
+75,
+document.getElementById('qty-moong-dal').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/mVkKCd8g/bikaneri-bhujia.jpg">
+
+<div class="product-content">
+
+<h3>Bikaneri Bhujia</h3>
+
+<p class="info">
+35gm • Traditional bhujia
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-bikaneri"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Bikaneri Bhujia',
+75,
+document.getElementById('qty-bikaneri').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/YBrBBxVS/khatta-meetha.jpg">
+
+<div class="product-content">
+
+<h3>Khatta Meetha</h3>
+
+<p class="info">
+41gm • Sweet & spicy mixture
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-khatta"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Khatta Meetha',
+75,
+document.getElementById('qty-khatta').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/6JwQ2S0c/navratan-mixture.jpg">
+
+<div class="product-content">
+
+<h3>Navratan Mixture</h3>
+
+<p class="info">
+43gm • Mixed namkeen snack
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-navratan"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Navratan Mixture',
+75,
+document.getElementById('qty-navratan').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/LXhDLxT1/mast-moongfali.jpg">
+
+<div class="product-content">
+
+<h3>Mast Moongfali</h3>
+
+<p class="info">
+41gm • Crispy peanut namkeen
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-moongfali"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Mast Moongfali',
+75,
+document.getElementById('qty-moongfali').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/b5wXL4JX/punjabi-tadka.jpg">
+
+<div class="product-content">
+
+<h3>Punjabi Tadka</h3>
+
+<p class="info">
+41gm • Spicy Punjabi mixture
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-punjabi"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Punjabi Tadka',
+75,
+document.getElementById('qty-punjabi').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="product">
+
+<img loading="lazy"
+src="https://i.ibb.co/7tTrNbjM/lite-chivda.jpg">
+
+<div class="product-content">
+
+<h3>Lite Chivda</h3>
+
+<p class="info">
+39gm • Light crunchy chivda
+</p>
+
+<input type="number"
+class="qty-input"
+id="qty-lite-chivda"
+value="1"
+min="1">
+
+<div class="product-bottom">
+
+<p class="price">₹75</p>
+
+<button
+class="add-btn"
+onclick="addToCart(
+'Lite Chivda',
+75,
+document.getElementById('qty-lite-chivda').value
+)">
+ADD
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<!-- CART -->
+
+<div id="cart"></div>
+
+<!-- CUSTOMER DETAILS -->
+
+<div class="customer-box">
+
+<h2>
+Customer Details
+</h2>
+
+<div class="input-group">
+
+<label>
+Your Name
+</label>
+
+<input
+type="text"
+id="name"
+placeholder="Enter your name"
+>
+
+</div>
+
+<div class="input-group">
+
+<label>
+Phone Number
+</label>
+
+<input
+type="text"
+id="phone"
+placeholder="Enter phone number"
+>
+
+</div>
+
+<div class="input-group">
+
+<label>
+Address
+</label>
+
+<textarea
+id="address"
+placeholder="Enter delivery address"
+></textarea>
+
+</div>
+
+<div class="input-group">
+
+<label>
+Important Note
+</label>
+
+<textarea
+id="note"
+placeholder="Any important note"
+></textarea>
+
+</div>
+
+<button
+class="whatsapp-order-btn"
+onclick="sendWhatsApp()"
+>
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+>
+
+<span>
+Place Order on WhatsApp
+</span>
+
+</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
