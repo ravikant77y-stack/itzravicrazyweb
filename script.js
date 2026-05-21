@@ -794,18 +794,22 @@ message +=
 `*Order Details:*%0A`;
 
 let total = 0;
+let totalPcs = 0;
 
-cart.forEach(item=>{
+cart.forEach(item => {
 
-let subtotal =
-item.price * item.qty;
+    let subtotal = item.price * item.qty;
 
-total += subtotal;
+    total += subtotal;
+    totalPcs += item.qty;
 
-message +=
-`• ${item.name} × ${item.qty} pcs = ₹${subtotal}%0A`;
+    message +=
+    `• ${item.name} × ${item.qty} pcs%0A`;
 
 });
+
+message +=
+`%0A*Total Pcs:* ${totalPcs}%0A`;
 
 message +=
 `%0A*Total Amount:* ₹${total}`;
