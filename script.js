@@ -804,7 +804,7 @@ cart.forEach(item => {
     totalPcs += item.qty;
 
     message +=
-    `• ${item.name} × ${item.qty} pcs%0A`;
+    `• ${item.name} × ${item.qty}%0A`;
 
 });
 
