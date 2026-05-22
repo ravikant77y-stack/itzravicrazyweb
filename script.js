@@ -1,5 +1,15 @@
 let cart = [];
 
+let customerOrders = {};
+
+fetch("orders.json")
+.then(response => response.json())
+.then(data => {
+
+customerOrders = data;
+
+});
+
 /* CUSTOMER DATABASE */
 
 let customers = [
@@ -578,6 +588,10 @@ document.getElementById(
 "customerSuggestions"
 ).innerHTML = "";
 
+showLastOrder(
+customer.name
+);
+
 }
 
 /* SEARCH PRODUCTS */
@@ -675,6 +689,17 @@ updateCart();
 
 }
 
+function removeFromCart(name){
+
+cart =
+cart.filter(
+item=>item.name!==name
+);
+
+updateCart();
+
+}
+
 /* UPDATE CART */
 
 function updateCart(){
@@ -719,6 +744,22 @@ ${item.qty} pcs
 <div>
 
 ₹${subtotal}
+
+<button
+onclick="removeFromCart('${item.name}')"
+style="
+margin-left:10px;
+background:red;
+border:none;
+padding:5px 10px;
+border-radius:8px;
+color:white;
+cursor:pointer;
+">
+
+Remove
+
+</button>
 
 </div>
 
@@ -794,32 +835,154 @@ message +=
 `*Order Details:*%0A`;
 
 let total = 0;
-let totalPcs = 0;
 
-cart.forEach(item => {
+let totalPatti = 0;
 
-    let subtotal = item.price * item.qty;
+cart.forEach(item=>{
 
-    total += subtotal;
-    totalPcs += item.qty;
+let subtotal =
+item.price * item.qty;
 
-    message +=
-    `• ${item.name} × ${item.qty}%0A`;
+total += subtotal;
+
+totalPatti += item.qty;
+
+message +=
+`• ${item.name} × ${item.qty}%0A`;
 
 });
 
 message +=
-`%0A*Total Pcs:* ${totalPcs}%0A`;
+`%0A*Total Patti:* ${totalPatti}`;
 
 message +=
 `%0A*Total Amount:* ₹${total}`;
 
-let whatsappNumber =
-"917304895165";
+let whatsappNumber ="7304895165";
 
 let url =
 `whatsapp://send?phone=${whatsappNumber}&text=${message}`;
 
+saveLastOrder(name);
+
 window.location.href = url;
+
+}
+
+function saveLastOrder(customerName){
+
+let orders =
+JSON.parse(
+localStorage.getItem(
+"customerOrders"
+)
+)||{};
+
+orders[customerName]=
+JSON.parse(
+JSON.stringify(cart)
+);
+
+localStorage.setItem(
+"customerOrders",
+JSON.stringify(orders)
+);
+
+}
+
+function showLastOrder(customerName){
+
+let box =
+document.getElementById(
+"lastOrderContent"
+);
+
+document
+.querySelectorAll(
+".last-product-order"
+)
+.forEach(x=>{
+
+x.innerHTML="";
+
+});
+
+let localOrders =
+JSON.parse(
+localStorage.getItem(
+"customerOrders"
+)
+)||{};
+
+let order =
+localOrders[customerName]
+||
+customerOrders[customerName];
+
+if(!order){
+
+box.innerHTML =
+"No previous order found";
+
+return;
+
+}
+
+box.innerHTML="";
+
+order.forEach(item=>{
+
+box.innerHTML +=
+
+`
+
+<div>
+
+${item.name}
+
+→
+
+${item.qty}
+
+</div>
+
+`;
+
+let productBox =
+document.getElementById(
+
+`last-${
+item.name.replaceAll(
+" ",
+"-"
+)
+}`
+
+);
+
+console.log(
+item.name
+);
+
+console.log(
+
+`last-${
+item.name.replaceAll(
+" ",
+"-"
+)
+}`
+
+);
+
+if(productBox){
+
+productBox.innerHTML =
+
+`Last Order : ${item.qty}`;
+
+}
+
+});
 
 }
