@@ -1770,3 +1770,32 @@ border-radius:15px;
   overflow-x: auto;
   padding-bottom: 10px;
 }
+
+/* YOUR OLD CSS ABOVE */
+
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+
+  body{
+    padding: 10px;
+  }
+
+  .top-container{
+    padding: 20px 15px;
+    border-radius: 25px;
+  }
+
+  .search-box{
+    width: 90%;
+    height: 55px;
+    font-size: 20px;
+  }
+
+  .category-btn{
+    width: 85%;
+    height: 65px;
+    font-size: 18px;
+  }
+
+}
