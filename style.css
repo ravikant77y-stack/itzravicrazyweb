@@ -1063,3 +1063,57 @@ body > h2{
     animation:none !important;
   }
 }
+
+/* MOBILE PRODUCT GRID */
+@media (max-width: 768px){
+
+.products-container{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:12px;
+    padding:8px;
+}
+
+.product-card{
+    width:100%;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+    height:140px;
+    object-fit:contain;
+    padding:10px;
+}
+
+.product-info{
+    padding:12px;
+}
+
+.product-title{
+    font-size:15px;
+    line-height:20px;
+    margin-bottom:6px;
+}
+
+.product-description{
+    font-size:11px;
+    line-height:16px;
+}
+
+.price{
+    font-size:18px;
+}
+
+select{
+    height:40px;
+    font-size:13px;
+}
+
+button{
+    height:42px;
+    font-size:13px;
+}
+
+}
