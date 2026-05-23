@@ -978,13 +978,37 @@ body > h2{
   }
 
   .craxx-text{
-    font-size:22px;
+    font-size:18px;
   }
 
   .category{
-    padding:15px 16px;
-    border-left-width:7px;
+    padding:12px 14px;
+    border-left-width:6px;
   }
+
+  .category h2{
+    font-size:20px;
+    line-height:22px;
+}
+
+.category p{
+    font-size:11px;
+    margin-top:2px;
+}
+
+.filters button{
+    padding:10px 8px;
+    font-size:12px;
+}
+
+#searchInput{
+    padding:12px 16px;
+    font-size:13px;
+}
+
+.craxx-text{
+    font-size:18px;
+}
 
   .category::after{
     width:42px;
