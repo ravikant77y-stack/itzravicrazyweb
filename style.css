@@ -1707,3 +1707,66 @@ background:
 border-radius:15px;
 
 }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+
+  body{
+    padding: 10px;
+  }
+
+  .top-container{
+    padding: 20px 15px;
+    border-radius: 25px;
+  }
+
+  .logo-card{
+    width: 85%;
+    padding: 20px;
+    border-radius: 25px;
+    margin: auto;
+  }
+
+  .logo-card h1{
+    font-size: 28px;
+  }
+
+  .logo-card p{
+    font-size: 18px;
+  }
+
+  .search-box{
+    width: 90%;
+    height: 55px;
+    font-size: 20px;
+    border-radius: 30px;
+    padding: 0 20px;
+    margin-top: 20px;
+  }
+
+  .category-btn{
+    width: 85%;
+    height: 65px;
+    font-size: 18px;
+    border-radius: 18px;
+    margin: 12px auto;
+  }
+
+  .product-card{
+    width: 95%;
+    padding: 15px;
+    border-radius: 20px;
+  }
+
+  .product-title{
+    font-size: 20px;
+  }
+
+}
+
+.categories{
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
