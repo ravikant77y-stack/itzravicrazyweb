@@ -664,37 +664,38 @@ section.style.display="none";
 
 /* ADD TO CART */
 
-function addToCart(name,price,qty){
+function addToCart(button, productName, price) {
 
-qty = parseInt(qty);
+let qty = parseInt(button.dataset.qty || 0);
 
-let existing =
-cart.find(item=>item.name===name);
+qty++;
 
-if(existing){
+button.dataset.qty = qty;
+button.innerText = qty;
 
-existing.qty += qty;
-
-}else{
+cart = cart.filter(item => item.name !== productName);
 
 cart.push({
-name:name,
-price:price,
-qty:qty
+name: productName,
+price: price,
+qty: qty
 });
-
-}
 
 updateCart();
 
 }
 
-function removeFromCart(name){
+function removeItem(name){
 
-cart =
-cart.filter(
-item=>item.name!==name
-);
+let item = cart.find(item => item.name === name);
+
+if(!item) return;
+
+item.qty--;
+
+if(item.qty <= 0){
+cart = cart.filter(item => item.name !== name);
+}
 
 updateCart();
 
@@ -746,7 +747,7 @@ ${item.qty} pcs
 ₹${subtotal}
 
 <button
-onclick="removeFromCart('${item.name}')"
+onclick="removeItem('${item.name}')"
 style="
 margin-left:10px;
 background:red;
@@ -850,6 +851,43 @@ totalPatti += item.qty;
 message +=
 `• ${item.name} × ${item.qty}%0A`;
 
+let stock=
+
+JSON.parse(
+localStorage.getItem(
+"stock"
+)
+)||{};
+
+if(
+stock[item.name]
+!==undefined
+){
+
+stock[item.name]-=
+item.qty;
+
+if(
+stock[item.name]
+<0
+){
+
+stock[item.name]=0;
+
+}
+
+}
+
+localStorage.setItem(
+
+"stock",
+
+JSON.stringify(
+stock
+)
+
+);
+
 });
 
 message +=
@@ -865,7 +903,13 @@ let url =
 
 saveLastOrder(name);
 
+updateStock();
+
+setTimeout(()=>{
+
 window.location.href = url;
+
+},300);
 
 }
 
@@ -984,5 +1028,110 @@ productBox.innerHTML =
 }
 
 });
+
+}
+
+function fetchLastOrderToCart(){
+
+let customerName =
+document.getElementById("name").value;
+
+if(!customerName){
+
+alert("Select customer first");
+
+return;
+
+}
+
+let localOrders =
+JSON.parse(
+localStorage.getItem(
+"customerOrders"
+)
+)||{};
+
+let order =
+localOrders[customerName]
+||
+customerOrders[customerName];
+
+if(!order){
+
+alert("No last order found");
+
+return;
+
+}
+
+cart = [];
+
+order.forEach(item=>{
+
+let existingPrice =
+item.price || 75;
+
+cart.push({
+
+name:item.name,
+price:existingPrice,
+qty:item.qty
+
+});
+
+});
+
+updateCart();
+
+}
+
+function updateStock(){
+
+let stock =
+JSON.parse(
+localStorage.getItem("stock")
+)||{};
+
+console.log("BEFORE",stock);
+
+cart.forEach(item=>{
+
+let product =
+item.name.trim();
+
+if(stock.hasOwnProperty(product)){
+
+stock[product] =
+Number(stock[product]) - Number(item.qty);
+
+if(stock[product] < 0){
+
+stock[product] = 0;
+
+}
+
+console.log(
+"UPDATED",
+product,
+stock[product]
+);
+
+}else{
+
+console.log(
+"NOT FOUND:",
+product
+);
+
+}
+
+});
+
+localStorage.setItem(
+"stock",
+JSON.stringify(stock)
+);
+
+console.log("AFTER",stock);
 
 }
