@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+>
+
+<title>CRAXX Stock Management</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<h1>CRAXX STOCK MANAGEMENT</h1>
+
+<div class="stock-top-buttons">
+
+<button
+class="save-stock-btn"
+onclick="saveStock()"
+>
+
+💾 Save Stock
+
+</button>
+
+<button
+class="back-btn"
+onclick="
+window.location.href=
+'index.html'
+"
+>
+
+🔙 Order Page
+
+</button>
+
+</div>
+
+<div class="stock-search-box">
+
+<input
+type="search"
+id="stockSearchInput"
+placeholder="Search stock products..."
+oninput="searchStockProducts()"
+>
+
+</div>
+
+<div class="product-manager-box">
+
+<h2>Product Manager</h2>
+
+<p>Add a new product or edit product gram, price, category, and image.</p>
+
+<div class="product-manager-grid">
+
+<label>
+Select Product
+<select id="productEditSelect" onchange="loadProductForEdit()">
+<option value="">New Product</option>
+</select>
+</label>
+
+<label>
+Product Name
+<input type="text" id="productEditName" placeholder="Product name">
+</label>
+
+<label>
+Category
+<select id="productEditCategory">
+<option value="savouries">Savouries Foods</option>
+<option value="chips">Chips Gourmet</option>
+<option value="namkeen">Namkeen</option>
+</select>
+</label>
+
+<label>
+Original Gram
+<input type="text" id="productEditGram" placeholder="26gm">
+</label>
+
+<label>
+Original Price
+<input type="number" id="productEditPrice" min="0" inputmode="numeric" placeholder="75">
+</label>
+
+<label>
+52gm PCS Price
+<input type="number" id="productEditPcsPrice" min="0" inputmode="numeric" placeholder="15">
+</label>
+
+<label class="product-image-field">
+Image URL
+<input type="text" id="productEditImage" placeholder="https://...">
+</label>
+
+</div>
+
+<div class="scan-actions">
+<button class="save-stock-btn" onclick="saveProductForm()">Save Product</button>
+<button class="back-btn" onclick="clearProductForm()">New Product</button>
+</div>
+
+<div id="productManagerStatus" class="scan-status">
+Ready
+</div>
+
+</div>
+
+<div class="scan-stock-box">
+
+<h2>Scan Stock Sheet</h2>
+
+<p>
+Upload or capture a stock sheet photo. Review detected items before replacing stock.
+</p>
+
+<input
+type="file"
+id="stockScanInput"
+accept="image/*"
+>
+
+<div class="scan-actions">
+
+<button
+class="save-stock-btn"
+onclick="scanStockSheet()"
+>
+Scan Sheet
+</button>
+
+<button
+class="back-btn"
+onclick="applyScannedStock()"
+>
+Replace Stock
+</button>
+
+</div>
+
+<div id="scanStatus" class="scan-status">
+No scan yet
+</div>
+
+<textarea
+id="scanText"
+class="scan-text"
+placeholder="OCR text will appear here. You can edit it before replacing stock."
+></textarea>
+
+<div id="scanPreview" class="scan-preview"></div>
+
+</div>
+
+<h2>
+
+Stock History
+
+</h2>
+
+<div
+id="stockHistory"
+>
+
+No history yet
+
+</div>
+
+<div
+id="stockList"
+>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script src="stock.js"></script>
+
+</body>
+
+</html>
