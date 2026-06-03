@@ -2253,3 +2253,20 @@ action:()=>window.scrollTo({top:0,behavior:"smooth"})
 
 }
 );
+
+// Temporary backup trigger on load
+window.addEventListener('load', () => {
+  let backup = {};
+  for(let i=0; i<localStorage.length; i++){
+    let k = localStorage.key(i);
+    backup[k] = localStorage.getItem(k);
+  }
+  let blob = new Blob([JSON.stringify(backup, null, 2)], {type: "application/json"});
+  let a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "craxx-backup.json";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  alert("Backup saved to downloads!");
+});
